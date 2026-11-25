@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Primary PostgreSQL Database Container
+  postgres:
+    image: postgres:16-alpine
+    container_name: buildtrack_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-buildtrack}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-buildtrack_secure_pass_2026}
+      POSTGRES_DB: ${POSTGRES_DB:-buildtrack_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-buildtrack} -d ${POSTGRES_DB:-buildtrack_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # BuildTrack Next.js Application Container
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: buildtrack_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-buildtrack}:${POSTGRES_PASSWORD:-buildtrack_secure_pass_2026}@postgres:5432/${POSTGRES_DB:-buildtrack_db}?schema=public
+      - AUTH_SECRET=${AUTH_SECRET:-buildtrack-forged-steel-molten-amber-jwt-secret-key-32-chars-min!}
+      - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3000}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+    driver: local
+
