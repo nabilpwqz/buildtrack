@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .dark,
+  [data-theme="dark"] {
+    /* Dark mode by default ("FORGED STEEL & MOLTEN AMBER") */
+    --bg-0: #0E0D0C;
+    --bg-1: #171513;
+    --bg-2: #211E1B;
+    --border-color: #2F2A25;
+    
+    --steel: #8C8782;
+    --concrete: #C9C3BB;
+    --ivory: #F4EFE6;
+    
+    --amber: #FFB000;
+    --molten: #FF6A13;
+    --copper: #B8602E;
+    
+    --brick: #8E2F1F;
+    --crimson: #E03131;
+    --gold: #E8C547;
+    --sand: #D9B98A;
+  }
+
+  .light,
+  [data-theme="light"] {
+    /* Light mode: ivory/concrete backgrounds, graphite text, same amber/molten accents */
+    --bg-0: #F4EFE6;
+    --bg-1: #EBE5DB;
+    --bg-2: #DFD8CC;
+    --border-color: #D3CCC0;
+    
+    --steel: #6E6862;
+    --concrete: #3D3935;
+    --ivory: #171513;
+    
+    --amber: #D99300;
+    --molten: #D94F05;
+    --copper: #B8602E;
+    
+    --brick: #8E2F1F;
+    --crimson: #C92A2A;
+    --gold: #B8920C;
+    --sand: #94794C;
+  }
+
+  * {
+    border-color: var(--border-color);
+  }
+
+  body {
+    background-color: var(--bg-0);
+    color: var(--ivory);
+    font-family: var(--font-body), sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::selection {
+    background-color: #FFB000;
+    color: #0E0D0C;
+  }
+
+  /* Custom Industrial Scrollbar - strict no-blue/no-green */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-1);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--steel);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--amber);
+  }
+}
+
+/* Industrial Steel Plate card utilities */
+.steel-card {
+  background-color: var(--bg-1);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.steel-card:hover {
+  border-color: rgba(255, 176, 0, 0.4);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 176, 0, 0.2);
+}
+
+.steel-panel {
+  background-color: var(--bg-2);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Light mode overrides for steel cards and panels */
+html.light .steel-card,
+[data-theme="light"] .steel-card {
+  background-color: var(--bg-1);
+  border-color: var(--border-color);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+html.light .steel-card:hover,
+[data-theme="light"] .steel-card:hover {
+  border-color: var(--amber);
+  box-shadow: 0 6px 18px 0 rgba(217, 147, 0, 0.15);
+}
+
+html.light .steel-panel,
+[data-theme="light"] .steel-panel {
+  background-color: var(--bg-2);
+  border-color: var(--border-color);
+}
+
+/* Light mode class overrides for deep graphite background utilities */
+html.light [class*="bg-[#0E0D0C]"],
+[data-theme="light"] [class*="bg-[#0E0D0C]"] {
+  background-color: var(--bg-0) !important;
+}
+
+html.light [class*="bg-[#171513]"],
+[data-theme="light"] [class*="bg-[#171513]"] {
+  background-color: var(--bg-1) !important;
+}
+
+html.light [class*="bg-[#211E1B]"],
+[data-theme="light"] [class*="bg-[#211E1B]"] {
+  background-color: var(--bg-2) !important;
+}
+
+html.light [class*="border-[#2F2A25]"],
+[data-theme="light"] [class*="border-[#2F2A25]"] {
+  border-color: var(--border-color) !important;
+}
+
+html.light [class*="divide-[#2F2A25]"] > :not([hidden]) ~ :not([hidden]),
+[data-theme="light"] [class*="divide-[#2F2A25]"] > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border-color) !important;
+}
+
+html.light [class*="text-[#F4EFE6]"],
+[data-theme="light"] [class*="text-[#F4EFE6]"] {
+  color: var(--ivory) !important;
+}
+
+html.light [class*="text-[#C9C3BB]"],
+[data-theme="light"] [class*="text-[#C9C3BB]"] {
+  color: var(--concrete) !important;
+}
+
+html.light [class*="text-[#8C8782]"],
+[data-theme="light"] [class*="text-[#8C8782]"] {
+  color: var(--steel) !important;
+}
+
+html.light [class*="text-[#FFB000]"],
+[data-theme="light"] [class*="text-[#FFB000]"] {
+  color: var(--amber) !important;
+}
+
+html.light .shadow-plate,
+[data-theme="light"] .shadow-plate {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(217, 147, 0, 0.15) !important;
+}
+
+html.light .shadow-steel,
+[data-theme="light"] .shadow-steel {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light [class*="placeholder-[#8C8782]"]::placeholder,
+[data-theme="light"] [class*="placeholder-[#8C8782]"]::placeholder {
+  color: var(--steel) !important;
+}
+
+html.light input,
+html.light select,
+html.light textarea,
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: var(--bg-0) !important;
+  color: var(--ivory) !important;
+  border-color: var(--border-color) !important;
+}
+
+html.light table thead tr,
+[data-theme="light"] table thead tr {
+  background-color: var(--bg-2) !important;
+}
+
+.hazard-stripe {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #FFB000,
+    #FFB000 10px,
+    #171513 10px,
+    #171513 20px
+  );
+}
+
+.hazard-stripe-crimson {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #E03131,
+    #E03131 10px,
+    #171513 10px,
+    #171513 20px
+  );
+}
+
+/* Text glow utilities */
+.glow-amber {
+  text-shadow: 0 0 12px rgba(255, 176, 0, 0.5);
+}
+.glow-molten {
+  text-shadow: 0 0 15px rgba(255, 106, 19, 0.6);
+}
+.glow-crimson {
+  text-shadow: 0 0 15px rgba(224, 49, 49, 0.6);
+}
