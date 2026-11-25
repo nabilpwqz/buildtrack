@@ -1,0 +1,53 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-dhaka-expressway-light" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F4EFE6" />
+      <stop offset="50%" stop-color="#EBE5DB" />
+      <stop offset="100%" stop-color="#DFD8CC" />
+    </linearGradient>
+    <linearGradient id="glow-dhaka-expressway-light" x1="200" y1="100" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D99300" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#F4EFE6" stop-opacity="0" />
+    </linearGradient>
+    <pattern id="grid-dhaka-expressway-light" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#D3CCC0" stroke-width="0.8" />
+    </pattern>
+  </defs>
+
+  <!-- Ground & Foundation -->
+  <rect width="800" height="500" fill="url(#bg-dhaka-expressway-light)" />
+  <rect width="800" height="500" fill="url(#grid-dhaka-expressway-light)" opacity="0.4" />
+  <rect width="800" height="500" fill="url(#glow-dhaka-expressway-light)" />
+
+  <!-- Horizon Ground Line -->
+  <line x1="0" y1="380" x2="800" y2="380" stroke="#D3CCC0" stroke-width="2" />
+  <line x1="0" y1="384" x2="800" y2="384" stroke="#D99300" stroke-width="1" opacity="0.5" />
+
+  <!-- Structural Elements -->
+  
+    <!-- Piers & Elevated Girders -->
+    <rect x="120" y="240" width="40" height="140" fill="#DFD8CC" stroke="#6E6862" stroke-width="2" />
+    <rect x="380" y="240" width="40" height="140" fill="#DFD8CC" stroke="#6E6862" stroke-width="2" />
+    <rect x="640" y="240" width="40" height="140" fill="#DFD8CC" stroke="#6E6862" stroke-width="2" />
+    
+    <!-- Box Girder Deck -->
+    <polygon points="40,240 760,240 740,200 60,200" fill="#EBE5DB" stroke="#D99300" stroke-width="2" />
+    <line x1="40" y1="210" x2="760" y2="210" stroke="#6E6862" stroke-width="1.5" stroke-dasharray="10 5" />
+    
+    <!-- Parapet & Rails -->
+    <line x1="40" y1="195" x2="760" y2="195" stroke="#3D3935" stroke-width="3" />
+    <rect x="360" y="160" width="80" height="35" fill="#D99300" fill-opacity="0.1" stroke="#D99300" stroke-width="1.5" />
+    <text x="400" y="182" fill="#D99300" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">SPAN #04 ACTIVE</text>
+    
+
+  <!-- Telemetry HUD Badge Overlay -->
+  <rect x="40" y="40" width="320" height="70" rx="2" fill="#F4EFE6" fill-opacity="0.9" stroke="#D3CCC0" stroke-width="1.5" />
+  <rect x="40" y="40" width="4" height="70" fill="#D99300" />
+  <text x="56" y="65" fill="#6E6862" font-family="monospace" font-size="10" font-weight="bold" letter-spacing="1">PROJECT TELEMETRY // SPEC-2026</text>
+  <text x="56" y="85" fill="#171513" font-family="sans-serif" font-size="13" font-weight="bold">Dhaka Elevated Expressway Phase 2</text>
+  <text x="56" y="100" fill="#D99300" font-family="monospace" font-size="10">Precast Concrete Segmental Span</text>
+
+  <!-- Industrial Compass / Scale Marker -->
+  <rect x="700" y="420" width="60" height="24" fill="#F4EFE6" stroke="#D3CCC0" stroke-width="1" />
+  <text x="730" y="436" fill="#6E6862" font-family="monospace" font-size="9" text-anchor="middle">1:250 SCALE</text>
+</svg>

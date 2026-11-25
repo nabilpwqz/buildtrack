@@ -1,0 +1,50 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-bangabandhu-rail-bridge" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0E0D0C" />
+      <stop offset="50%" stop-color="#171513" />
+      <stop offset="100%" stop-color="#211E1B" />
+    </linearGradient>
+    <linearGradient id="glow-bangabandhu-rail-bridge" x1="200" y1="100" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFB000" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#0E0D0C" stop-opacity="0" />
+    </linearGradient>
+    <pattern id="grid-bangabandhu-rail-bridge" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2F2A25" stroke-width="0.8" />
+    </pattern>
+  </defs>
+
+  <!-- Ground & Foundation -->
+  <rect width="800" height="500" fill="url(#bg-bangabandhu-rail-bridge)" />
+  <rect width="800" height="500" fill="url(#grid-bangabandhu-rail-bridge)" opacity="0.4" />
+  <rect width="800" height="500" fill="url(#glow-bangabandhu-rail-bridge)" />
+
+  <!-- Horizon Ground Line -->
+  <line x1="0" y1="380" x2="800" y2="380" stroke="#2F2A25" stroke-width="2" />
+  <line x1="0" y1="384" x2="800" y2="384" stroke="#FFB000" stroke-width="1" opacity="0.5" />
+
+  <!-- Structural Elements -->
+  
+    <!-- Heavy Steel Lattice Truss Bridge -->
+    <polygon points="80,380 180,180 320,380 440,180 580,380 720,180 760,380" fill="none" stroke="#8C8782" stroke-width="3" />
+    <line x1="80" y1="380" x2="760" y2="380" stroke="#FFB000" stroke-width="4" />
+    <line x1="180" y1="180" x2="720" y2="180" stroke="#FFB000" stroke-width="4" />
+    <line x1="180" y1="180" x2="440" y2="180" stroke="#FF6A13" stroke-width="2" />
+    
+    <!-- Pylons & Counterbraces -->
+    <line x1="180" y1="180" x2="180" y2="380" stroke="#C9C3BB" stroke-width="2" stroke-dasharray="4 4" />
+    <line x1="440" y1="180" x2="440" y2="380" stroke="#C9C3BB" stroke-width="2" stroke-dasharray="4 4" />
+    <line x1="720" y1="180" x2="720" y2="380" stroke="#C9C3BB" stroke-width="2" stroke-dasharray="4 4" />
+    
+
+  <!-- Telemetry HUD Badge Overlay -->
+  <rect x="40" y="40" width="320" height="70" rx="2" fill="#0E0D0C" fill-opacity="0.9" stroke="#2F2A25" stroke-width="1.5" />
+  <rect x="40" y="40" width="4" height="70" fill="#FFB000" />
+  <text x="56" y="65" fill="#8C8782" font-family="monospace" font-size="10" font-weight="bold" letter-spacing="1">PROJECT TELEMETRY // SPEC-2026</text>
+  <text x="56" y="85" fill="#F4EFE6" font-family="sans-serif" font-size="13" font-weight="bold">Bangabandhu Dual-Gauge Rail Bridge</text>
+  <text x="56" y="100" fill="#FFB000" font-family="monospace" font-size="10">Steel Lattice Arch</text>
+
+  <!-- Industrial Compass / Scale Marker -->
+  <rect x="700" y="420" width="60" height="24" fill="#0E0D0C" stroke="#2F2A25" stroke-width="1" />
+  <text x="730" y="436" fill="#8C8782" font-family="monospace" font-size="9" text-anchor="middle">1:250 SCALE</text>
+</svg>
